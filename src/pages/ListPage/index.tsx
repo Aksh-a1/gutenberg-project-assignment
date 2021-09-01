@@ -41,20 +41,28 @@ const ListPage: React.FC<Props> = ({ genre, onBackClick }) => {
       </PageHeader>
       <Content>
         <Fragment>
-          <SimpleGrid columns={{ sm: 3, md: 4, lg: 6 }} spacing={'20px'}>
-            {booksList.map((book: any, index) => (
-              <BookDetail
-                title={book.title}
-                authors={book.authors}
-                imageSrc={book.formats['image/jpeg']}
-                formats={book.formats}
-                key={`${book.id}-${index}`}
-                ref={lastUserElementRef}
-              />
-            ))}
-          </SimpleGrid>
+          {booksList.length === 0 && !isLoading && !error ? (
+            <Typography variant='Body'>No data</Typography>
+          ) : (
+            <SimpleGrid columns={{ sm: 3, md: 4, lg: 6 }} spacing={'20px'}>
+              {booksList.map((book: any, index) => (
+                <BookDetail
+                  title={book.title}
+                  authors={book.authors}
+                  imageSrc={book.formats['image/jpeg']}
+                  formats={book.formats}
+                  key={`${book.id}-${index}`}
+                  ref={lastUserElementRef}
+                />
+              ))}
+            </SimpleGrid>
+          )}
           {isLoading && <Loading />}
-          {error && <p>{error}</p>}
+          {error && (
+            <Typography variant='Body'>
+              Oops! something went wrong. Please Try again later.
+            </Typography>
+          )}
         </Fragment>
       </Content>
     </Fragment>
