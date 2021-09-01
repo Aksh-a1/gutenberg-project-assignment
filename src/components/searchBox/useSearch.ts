@@ -19,7 +19,7 @@ const useSearch = ({ genre }: Params) => {
         const newSearchUrl =
           query === '' ? '' : searchBooksForQueryUrl(query, genre)
         setSearchUrl(newSearchUrl)
-      }, 1500)
+      }, 250)
     },
     [genre]
   )
