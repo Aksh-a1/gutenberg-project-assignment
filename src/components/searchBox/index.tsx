@@ -6,8 +6,8 @@ import {
   InputLeftElement,
   Box
 } from '@chakra-ui/react'
-import searchIcon from '../../../assets/images/Search.svg'
-import cancelIcon from '../../../assets/images/Cancel.svg'
+import searchIcon from '../../assets/images/Search.svg'
+import cancelIcon from '../../assets/images/Cancel.svg'
 
 interface Props {
   onChange: Function

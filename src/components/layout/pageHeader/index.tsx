@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react'
 import React from 'react'
-import pattern from '../../assets/images/Pattern.svg'
+import pattern from '../../../assets/images/Pattern.svg'
 
 interface Props {
   children: React.ReactNode
