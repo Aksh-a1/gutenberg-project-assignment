@@ -26,8 +26,9 @@ const useFetchBooksList = ({ fetchUrl, isSearch }: Params) => {
         setBooksList([...results])
       } else {
         setBooksList(() => {
-          previousResults.current = [...previousResults.current, ...results]
-          return previousResults.current
+          const finalResult = [...previousResults.current, ...results]
+          previousResults.current = [...results]
+          return finalResult
         })
       }
     }

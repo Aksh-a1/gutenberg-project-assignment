@@ -1,8 +1,7 @@
-import { Box } from '@chakra-ui/react'
 import React, { Fragment } from 'react'
 import Typography from '../../common/components/typography'
 
-const SiteTitle = () => {
+const MainPageTitle: React.FC = () => {
   return (
     <Fragment>
       <Typography variant='H1'>Gutenberg Project</Typography>
@@ -15,4 +14,4 @@ const SiteTitle = () => {
   )
 }
 
-export default SiteTitle
+export default MainPageTitle

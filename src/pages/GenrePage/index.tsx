@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 import { SimpleGrid } from '@chakra-ui/react'
-import Content from '../../components/content'
+import Content from '../../components/layout/content'
 import GenreCard from '../../components/genreCard'
-import SiteTitle from '../../components/siteTitle'
+import MainPageTitle from '../../components/mainPageTitle'
 import { GENRES } from '../../constants/genres'
-import PageHeader from '../../components/pageHeader'
+import PageHeader from '../../components/layout/pageHeader'
 
 interface Props {
   onClick: Function
@@ -14,7 +14,7 @@ const GenrePage: React.FC<Props> = ({ onClick }) => {
   return (
     <Fragment>
       <PageHeader background={true}>
-        <SiteTitle />
+        <MainPageTitle />
       </PageHeader>
       <Content>
         <SimpleGrid

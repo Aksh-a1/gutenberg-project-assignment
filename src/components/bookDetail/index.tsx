@@ -1,5 +1,5 @@
 import { Box, forwardRef, useToast } from '@chakra-ui/react'
-import React, { useCallback, useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 import Typography from '../../common/components/typography'
 import { getBookLink, Format, Author, getAuthorName } from './helper'
 
@@ -26,7 +26,7 @@ const BookDetail = forwardRef(
           isClosable: true
         })
       }
-    }, [bookLink])
+    }, [bookLink, toast])
 
     return (
       <Box
@@ -48,7 +48,9 @@ const BookDetail = forwardRef(
         <Typography variant='BookName' noOfLines={2}>
           {title}
         </Typography>
-        <Typography variant='BookAuthor'>{authorName}</Typography>
+        <Typography variant='BookAuthor' noOfLines={2}>
+          {authorName}
+        </Typography>
       </Box>
     )
   }

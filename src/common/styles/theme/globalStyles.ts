@@ -1,4 +1,4 @@
-export default {
+const globalStyles = {
   global: {
     html: {
       height: '100%'
@@ -15,3 +15,5 @@ export default {
     }
   }
 }
+
+export default globalStyles

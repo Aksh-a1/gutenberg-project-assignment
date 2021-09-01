@@ -1,16 +1,16 @@
-import React, { Fragment, useCallback, useEffect } from 'react'
+import React, { Fragment, useCallback } from 'react'
 import { Box, HStack, SimpleGrid } from '@chakra-ui/react'
 import Typography from '../../common/components/typography'
-import Content from '../../components/content'
+import Content from '../../components/layout/content'
 import backIcon from '../../assets/images/Back.svg'
 import { GenreType } from '../../common/types/genre'
-import PageHeader from '../../components/pageHeader'
+import PageHeader from '../../components/layout/pageHeader'
 import { getBooksForGenreUrl } from '../../constants/apiUrls'
 import BookDetail from '../../components/bookDetail'
 import Loading from '../../common/components/loading'
-import SearchBox from '../../common/components/searchBox'
+import SearchBox from '../../components/searchBox'
 import useFetchBooksList from './useFetchBooksList'
-import useSearch from '../../common/components/searchBox/useSearch'
+import useSearch from '../../components/searchBox/useSearch'
 
 interface Props {
   genre: GenreType

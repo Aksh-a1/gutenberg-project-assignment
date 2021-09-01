@@ -1,9 +1,6 @@
 import { useCallback, useRef, useState } from 'react'
-import {
-  searchBooksForQueryUrl,
-  getBooksForGenreUrl
-} from '../../../constants/apiUrls'
-import { GenreType } from '../../types/genre'
+import { searchBooksForQueryUrl } from '../../constants/apiUrls'
+import { GenreType } from '../../common/types/genre'
 
 interface Params {
   genre: GenreType
