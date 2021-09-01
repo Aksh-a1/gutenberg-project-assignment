@@ -16,6 +16,7 @@ const GenreCard: React.FC<Props> = ({ genre, iconSrc, onClick }) => {
   }, [onClick, genre])
   return (
     <HStack
+      _hover={{ cursor: 'pointer' }}
       spacing='10px'
       bgColor='white'
       borderRadius='4px'
