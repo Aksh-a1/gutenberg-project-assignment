@@ -1,0 +1,1 @@
+export type GenreType = 'FICTION' | 'DRAMA' | 'HUMOR' | 'POLITICS' | 'PHILOSOPHY' | 'HISTORY' | 'ADVENTURE'
