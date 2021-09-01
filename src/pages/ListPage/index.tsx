@@ -1,4 +1,4 @@
-import React, { Fragment, useCallback } from 'react'
+import React, { Fragment, useCallback, useEffect } from 'react'
 import { Box, HStack, SimpleGrid } from '@chakra-ui/react'
 import Typography from '../../common/components/typography'
 import Content from '../../components/content'
@@ -20,10 +20,10 @@ interface Props {
 const ListPage: React.FC<Props> = ({ genre, onBackClick }) => {
   const bookListUrl = getBooksForGenreUrl(genre)
   const { onSearchChange, searchUrl } = useSearch({ genre })
-  const fetchUrl = searchUrl ? searchUrl : bookListUrl
-  console.log(fetchUrl)
+
+  const fetchUrl = searchUrl === '' ? bookListUrl : searchUrl
   const { isLoading, booksList, lastUserElementRef, error } = useFetchBooksList(
-    { fetchUrl }
+    { fetchUrl, isSearch: searchUrl !== '' }
   )
 
   const _onClick = useCallback(() => {
@@ -37,7 +37,7 @@ const ListPage: React.FC<Props> = ({ genre, onBackClick }) => {
           <Box as='img' src={backIcon} onClick={_onClick} />
           <Typography variant='H2'>{genre}</Typography>
         </HStack>
-        <SearchBox onChange={onSearchChange}/>
+        <SearchBox onChange={onSearchChange} />
       </PageHeader>
       <Content>
         <Fragment>
@@ -47,6 +47,7 @@ const ListPage: React.FC<Props> = ({ genre, onBackClick }) => {
                 title={book.title}
                 authors={book.authors}
                 imageSrc={book.formats['image/jpeg']}
+                formats={book.formats}
                 key={`${book.id}-${index}`}
                 ref={lastUserElementRef}
               />

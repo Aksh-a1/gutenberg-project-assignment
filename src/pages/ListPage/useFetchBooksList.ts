@@ -4,14 +4,16 @@ import axios from 'axios'
 
 interface Params {
   fetchUrl: string
+  isSearch: boolean
 }
 
 const fetcher = (url: string) => axios.get(url).then((res) => res.data)
 
-const useFetchBooksList = ({ fetchUrl }: Params) => {
+const useFetchBooksList = ({ fetchUrl, isSearch }: Params) => {
   const [url, setUrl] = useState<string>(fetchUrl)
   const [booksList, setBooksList] = useState<any[]>([])
   const [nextUrl, setnextUrl] = useState<string | null>(null)
+  const previousResults = useRef<any[]>([])
   const { data, error } = useSWR(url, fetcher)
   const isLoading = !data && !error
   const observer = useRef<IntersectionObserver>()
@@ -20,9 +22,20 @@ const useFetchBooksList = ({ fetchUrl }: Params) => {
     if (data) {
       const { results, next } = data
       setnextUrl(next)
-      setBooksList((previousList) => [...previousList, ...results])
+      if (isSearch) {
+        setBooksList([...results])
+      } else {
+        setBooksList(() => {
+          previousResults.current = [...previousResults.current, ...results]
+          return previousResults.current
+        })
+      }
     }
-  }, [data])
+  }, [data, isSearch])
+
+  useEffect(() => {
+    setUrl(fetchUrl)
+  }, [fetchUrl])
 
   const lastUserElementRef = useCallback(
     (node) => {

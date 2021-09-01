@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import {
   searchBooksForQueryUrl,
   getBooksForGenreUrl
@@ -10,21 +10,17 @@ interface Params {
 }
 
 const useSearch = ({ genre }: Params) => {
-  const [searchQuery, setSearchQuery] = useState<string | null>(null)
-  const [searchUrl, setSearchUrl] = useState<string | null>(null)
+  const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
+  const [searchUrl, setSearchUrl] = useState<string>('')
 
   const onSearchChange = useCallback(
     (query: string) => {
-      let timer
-      if (timer) {
-        clearTimeout(timer)
+      if (timer.current) {
+        clearTimeout(timer.current)
       }
-      timer = setTimeout(() => {
-        setSearchQuery(searchQuery)
+      timer.current = setTimeout(() => {
         const newSearchUrl =
-          query === ''
-            ? getBooksForGenreUrl(genre)
-            : searchBooksForQueryUrl(query, genre)
+          query === '' ? '' : searchBooksForQueryUrl(query, genre)
         setSearchUrl(newSearchUrl)
       }, 1500)
     },
