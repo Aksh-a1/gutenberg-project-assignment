@@ -34,7 +34,7 @@ const useFetchBooksList = ({ fetchUrl, isSearch }: Params) => {
       })
       .catch(() => setError(true))
       .finally(() => setIsLoading(false))
-      //eslint-disable-next-line
+    //eslint-disable-next-line
   }, [currentUrl])
 
   useEffect(() => {

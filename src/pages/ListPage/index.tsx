@@ -33,7 +33,7 @@ const ListPage: React.FC<Props> = ({ genre, onBackClick }) => {
   return (
     <Fragment>
       <PageHeader>
-        <HStack spacing='20px' mb={'5'}>
+        <HStack spacing='20px' mb={'5'} _hover={{ cursor: 'pointer' }}>
           <Box as='img' src={backIcon} onClick={_onClick} />
           <Typography variant='H2'>{genre}</Typography>
         </HStack>
