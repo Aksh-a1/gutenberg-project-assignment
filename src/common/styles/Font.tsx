@@ -4,10 +4,10 @@ const Fonts = () => (
   <Global
     styles={`
       @font-face {
-        font-family: "Montserat";
-        src: local("Montserat"),
-          url("../../../public/fonts/Montserrat/Montserrat-Regular.ttf") format("truetype"),
-          url("../../../public/fonts/Montserrat/Montserrat-SemiBold.ttf") format("truetype"),
+        font-family: "Montserrat";
+        src: local("Montserrat"),
+          url("../../assets/fonts/Montserrat-Regular.ttf") format("truetype"),
+          url("../../assets/fonts/Montserrat-SemiBold.ttf") format("truetype");
       }
     `}
   />

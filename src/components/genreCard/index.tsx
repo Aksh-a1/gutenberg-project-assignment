@@ -23,9 +23,12 @@ const GenreCard: React.FC<Props> = ({ genre, iconSrc, onClick }) => {
       h='50px'
       boxShadow='0 2px 5px 0 rgba(211, 209, 238, 0.5)'
       onClick={_onClick}
+      justifyContent='space-between'
     >
-      <Box as='img' src={iconSrc} />
-      <Typography variant='GenreCard'>{genre}</Typography>
+      <HStack>
+        <Box as='img' h='7' w='7' src={iconSrc} />
+        <Typography variant='GenreCard'>{genre}</Typography>
+      </HStack>
       <Box as='img' src={nextIcon} />
     </HStack>
   )

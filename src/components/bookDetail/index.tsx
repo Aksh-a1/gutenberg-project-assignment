@@ -45,10 +45,10 @@ const BookDetail = forwardRef(
           boxShadow='0 2px 5px 0 rgba(211, 209, 238, 0.5)'
           src={imageSrc}
         />
-        <Typography variant='BookName' noOfLines={2}>
+        <Typography mt={'1'} variant='BookName' noOfLines={2}>
           {title}
         </Typography>
-        <Typography variant='BookAuthor' noOfLines={2}>
+        <Typography mt={'0.5'} variant='BookAuthor' noOfLines={2}>
           {authorName}
         </Typography>
       </Box>

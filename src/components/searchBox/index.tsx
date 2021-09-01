@@ -37,7 +37,12 @@ const SearchBox: React.FC<Props> = ({ onChange }) => {
         color='gray.300'
         fontSize='1.2em'
       />
-      <Input placeholder='Search' value={inputValue} onChange={handleChange} />
+      <Input
+        focusBorderColor='primary'
+        placeholder='Search'
+        value={inputValue}
+        onChange={handleChange}
+      />
       {inputValue && (
         <InputRightElement
           children={
