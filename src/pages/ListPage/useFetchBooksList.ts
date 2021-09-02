@@ -41,7 +41,7 @@ const useFetchBooksList = ({ fetchUrl, isSearch }: Params) => {
     setCurrentUrl(fetchUrl)
   }, [fetchUrl])
 
-  const lastUserElementRef = useCallback(
+  const lastElementRef = useCallback(
     (node) => {
       if (isLoading) return
       if (observer.current) observer.current.disconnect()
@@ -58,7 +58,7 @@ const useFetchBooksList = ({ fetchUrl, isSearch }: Params) => {
   return {
     isLoading,
     booksList,
-    lastUserElementRef,
+    lastElementRef,
     error
   }
 }

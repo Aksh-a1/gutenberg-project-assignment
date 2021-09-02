@@ -22,7 +22,7 @@ const ListPage: React.FC<Props> = ({ genre, onBackClick }) => {
   const { onSearchChange, searchUrl } = useSearch({ genre })
 
   const fetchUrl = searchUrl === '' ? bookListUrl : searchUrl
-  const { isLoading, booksList, lastUserElementRef, error } = useFetchBooksList(
+  const { isLoading, booksList, lastElementRef, error } = useFetchBooksList(
     { fetchUrl, isSearch: searchUrl !== '' }
   )
 
@@ -52,7 +52,7 @@ const ListPage: React.FC<Props> = ({ genre, onBackClick }) => {
                   imageSrc={book.formats['image/jpeg']}
                   formats={book.formats}
                   key={`${book.id}-${index}`}
-                  ref={lastUserElementRef}
+                  ref={lastElementRef}
                 />
               ))}
             </SimpleGrid>
